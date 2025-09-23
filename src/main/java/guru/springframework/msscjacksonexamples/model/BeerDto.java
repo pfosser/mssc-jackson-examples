@@ -12,6 +12,8 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by jt on 2019-04-20.
  */
@@ -21,6 +23,8 @@ import java.util.UUID;
 @Builder
 public class BeerDto {
 
+	// Note that this overrides any other naming strategy. It will be always used to serialize-deserialize
+	@JsonProperty("beerId")
     @Null
     private UUID id;
 
