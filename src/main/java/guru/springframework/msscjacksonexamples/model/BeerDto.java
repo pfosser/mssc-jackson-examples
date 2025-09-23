@@ -12,7 +12,9 @@ import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 /**
  * Created by jt on 2019-04-20.
@@ -23,21 +25,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Builder
 public class BeerDto {
 
-	// Note that this overrides any other naming strategy. It will be always used to serialize-deserialize
+	// Note that this overrides any other naming strategy. It will be always used to
+	// serialize-deserialize
 	@JsonProperty("beerId")
-    @Null
-    private UUID id;
+	@Null
+	private UUID id;
 
-    @NotBlank
-    private String beerName;
+	@NotBlank
+	private String beerName;
 
-    @NotBlank
-    private String beerStyle;
+	@NotBlank
+	private String beerStyle;
 
-    @Positive
-    private Long upc;
+	@Positive
+	private Long upc;
 
-    private BigDecimal price;
-    private OffsetDateTime createdDate;
-    private OffsetDateTime lastUpdatedDate;
+	@JsonFormat(shape = JsonFormat.Shape.STRING)
+	private BigDecimal price;
+
+	@JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
+	private OffsetDateTime createdDate;
+	private OffsetDateTime lastUpdatedDate;
 }
