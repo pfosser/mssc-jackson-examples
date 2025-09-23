@@ -11,9 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @JsonTest
 class BeerDtoTest extends BaseTest {
 
-	@Autowired
-	ObjectMapper objectMapper;
-
 	@Test
 	void testSerializeDto() throws JsonProcessingException {
 		BeerDto beerDto = getDto();
