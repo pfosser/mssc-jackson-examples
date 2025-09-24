@@ -22,10 +22,10 @@ class BeerDtoTest extends BaseTest {
 
 	@Test
 	void testDeserialize() throws JsonMappingException, JsonProcessingException {
-		String json = "{\"beerId\":\"e5ef7f9c-b0b3-41e7-9b77-7cd4936d076d\",\"beerName\":\"BeerName\",\"beerStyle\":\"Ale\",\"upc\":121212121212,\"price\":12.99,\"createdDate\":\"2025-09-22T08:45:52.16575117+02:00\",\"lastUpdatedDate\":\"2025-09-22T08:45:52.16578831+02:00\"}";
-		
+		String json = "{\"beerId\":\"e5ef7f9c-b0b3-41e7-9b77-7cd4936d076d\",\"beerName\":\"BeerName\",\"beerStyle\":\"Ale\",\"upc\":121212121212,\"price\":12.99,\"createdDate\":\"2025-09-22T08:45:52+0200\",\"lastUpdatedDate\":\"2025-09-22T08:45:52.16578831+02:00\", \"myLocalDate\":\"20250924\"}";
+
 		BeerDto beerDto = objectMapper.readValue(json, BeerDto.class);
-		
+
 		System.out.println(beerDto);
 	}
 }
