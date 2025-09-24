@@ -9,11 +9,13 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Positive;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 /**
@@ -46,4 +48,7 @@ public class BeerDto {
 	@JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
 	private OffsetDateTime createdDate;
 	private OffsetDateTime lastUpdatedDate;
+	
+	@JsonSerialize(using = LocalDateSerializer.class)
+	private LocalDate myLocalDate;
 }
